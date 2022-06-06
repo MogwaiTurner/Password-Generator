@@ -1,12 +1,66 @@
 <!DOCTYPE html>
-
-<html lang="en-us">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Password Generator</title>
-    </head>
-
-    <body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./Develop/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
         <h1>Password Generator</h1>
-    </body>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          
+          <h3>Number of characters</h3>
+          <form>
+            <label for="datemax">Minimum 8:</label>
+            <input type="integer" id="datemax" name="datemax" max="128"><br><br>
+          
+            <label for="datemin">Maximum 128:</label>
+            <input type="integer" id="datemin" name="datemin" min="8"><br><br>
+          </form>
+
+          <div class="special" id="special">
+            <h3>Character Types</h3>
+            <label class="container">Uppercase
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container">Lowercase
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container">Numbers
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+            
+            <label class="container">Special characters
+              <input type="checkbox">
+              <span class="checkmark"></span><br><br>
+            </label>
+          </div>
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
