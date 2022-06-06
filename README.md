@@ -1,7 +1,1 @@
-# Password Generator
-
-## Link
-https://mogwaiturner.github.io/Password-Generator/
-
-## Contributor
-Made by Mogwai Turner
+# Password Generator Starter Code
