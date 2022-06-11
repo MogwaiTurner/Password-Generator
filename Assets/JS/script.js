@@ -27,37 +27,65 @@ function generatePassword() {
       var specialCharPrompt = window.confirm("Include special characters?");
     }
 
-  const randomFunc = {
-    lower: getLower,
-    upper: getUpper,
-    number: getNumber,
-    symbol: getSymbol
-  };
-  
-  function getLower() {
-    const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-    return lowerCase[Math.floor(Math.random() * lowerCase.length)];
-  }
+    if (lowerCasePrompt && upperCasePrompt && numbersPrompt && specialCharPrompt) {
+      selection = lowerCase.concat(upperCase, numbers, specialChar);
+    }
+    else if (lowerCasePrompt && upperCasePrompt && numbersPrompt) {
+      selection = lowerCase.concat(upperCase, numbers);
+    }
+    else if (lowerCasePrompt && upperCasePrompt && specialCharPrompt) {
+      selection = lowerCase.concat(upperCase, specialChar);
+    }
+    else if (lowerCasePrompt && numbersPrompt && specialCharPrompt) {
+      selection = lowerCase.concat(numbers, specialChar);
+    }
+    else if (upperCasePrompt && numbersPrompt && specialCharPrompt) {
+      selection = upperCase.concat(numbers, specialChar);
+    }
+    else if (lowerCasePrompt && upperCasePrompt) {
+      selection = lowerCase.concat(upperCase);
+    }
+    else if (lowerCasePrompt && specialCharPrompt) {
+      selection = lowerCase.concat(specialChar);
+    }
+    else if (lowerCasePrompt && numbersPrompt) {
+      selection = lowerCase.concat(numbers);
+    }
+    else if (upperCasePrompt && numbersPrompt) {
+      selection = upperCase.concat(numbers);
+    }
+    else if (upperCasePrompt && specialCharPrompt) {
+      selection = upperCase.concat(specialChar);
+    }
+    else if (numbersPrompt && specialCharPrompt) {
+      selection = numbers.concat(specialChar);
+    }
+    else if (upperCasePrompt) {
+      selection = upperCase;
+    }
+    else if (lowerCasePrompt) {
+      selection = lowerCase;
+    }
+    else if (numbersPrompt) {
+      selection = numbers;
+    }
+    else if (specialCharPrompt) {
+      selection = specialChar;
+    }
 
-  function getUpper() {
-    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    return upperCase[Math.floor(Math.random() * upperCase.length)];
-  }
+    var randomPassword = ""
 
-  function getNumber() {
-    const numbers = "0123456789";
-    return numbers[Math.floor(Math.random() * numbers.length)];
-  }
-
-  function getSymbol() {
-    const specialChar = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
-    return specialChar[Math.floor(Math.random() * specialChar.length)];
-  }
-  
+    for (var i = 0; i < minMax; i++) {
+      randomPassword = randomPassword + selection[Math.floor(Math.random() * selection.length)];
+      
+    }
+    return randomPassword;  
 
 } 
 
 console.log(generatePassword);
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
